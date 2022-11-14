@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "jzz": "^1.4.8",
+    "jzz-gui-player": "^1.5.7",
+    "jzz-midi-smf": "^1.6.7",
+    "jzz-synth-osc": "^1.1.8",
+    "jzz-synth-tiny": "^1.2.8"
+  }
+}

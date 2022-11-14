@@ -13,32 +13,27 @@
     <script src="node_modules\jzz-synth-tiny\javascript\JZZ.synth.Tiny.js"></script>
     <script src="node_modules\jzz-synth-osc\javascript\JZZ.synth.OSC.js"></script>
     <script src="node_modules\jzz-gui-player\javascript\JZZ.gui.Player.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="navbar">
-      <h1 class="text-center"style="font-family:verdana">Evolutionary Music - Song Generator</h1>
+      <h1 class="text-center">Evolutionary Music - Song Generator</h1>
     </div>
     <div class="jumbotron">
-        <div class="row text-center">
-          <div class="col-md-4 text-center">
+        <div class="row">
+          <div class="col-md-6 text-center">
             <h3>1</h3>
-            <button onclick='fromURL("1.mid"); return false;'>Load Song</button> 
+            <!-- <p id=log>no file selected</p> -->
+            <button onclick='fromURL("7.mid"); return false;'>Load Song</button> 
             <!-- <p><button id="btn" onclick='playStop()' disabled>Play</button></p>
             <input type="number" id="increase1" value=0> -->
           </div>
-          <div class="col-md-4 text-center">
+          <div class="col-md-6 text-center">
             <h3>2</h3>
-            <button onclick='fromURL("2.mid"); return false;'>Load Song</button> 
-            <!-- <p><button id="btn2" onclick='playStop()' disabled>Play</button></p> -->
-          </div>
-          <div class="col-md-4 <div id=player></div>">
-            <h3>3</h3>
-            <button onclick='fromURL("3.mid"); return false;'>Load Song</button> 
-            <!-- <p><button id="btn3" onclick='playStop()' disabled>Play</button></p> -->
-            <!-- <input type="number" id="increase3" value=0> -->
+            <!-- <p id=log2>no file selected</p> -->
+            <button onclick='fromURL("8.mid"); return false;'>Load Song</button> 
+            <!-- <p><button id="btn2" onclick='playStop()' disabled>Play</button></p>
+            <input type="number" id="increase2" value=0> -->
           </div>
         </div>
         <div class="row text-center" style="margin-top: 70px;">
@@ -49,52 +44,32 @@
           <input type="number" id="increase" value=0 min=0 max=115>
           <button onclick='fromURL("6.mid", true); return false;'>Update Instrument</button> 
         </div>
-        <!-- <div class="row">
-          <div class="col-md-4 text-center">
-            <h3>4</h3>
-            <button onclick='fromURL("4.mid", 4); return false;'>Load Song</button> 
-            <p><button id="btn4" onclick='playStop()' disabled>Play</button></p>
-            <input type="number" id="increase4" value=0>
-          </div>
-          <div class="col-md-4 text-center">
-            <h3>5</h3>
-            <button onclick='fromURL("5.mid", 5); return false;'>Load Song</button> 
-            <p><button id="btn5" onclick='playStop()' disabled>Play</button></p>
-            <input type="number" id="increase5" value=0>
-          </div>
-          <div class="col-md-4 text-center">
-            <h3>6</h3>
-            <button onclick='fromURL("OG3.mid", 6); return false;'>Load Song</button> 
-            <p><button id="btn6" onclick='playStop()' disabled>Play</button></p>
-            <input type="number" id="increase6" value=0>
-          </div>
-        </div> -->
         <div class="row text-center" style="margin-top: 70px;">
           <!-- <form onsubmit='SubForm(); return false;' id="myForm"> 
             <div>
-              <label>Input numbers of your 2 favorite pieces</label>
+              <label>Input number of your favorite piece</label>
               <input name="choice1" id="choice1" value="1">
               <input type="submit">
-              <label for="choice2">Select the piece you like</label>
-              <input name="choice2" id="choice2" value="1">
             </div>
           </form> -->
           <button onclick="submitVal('1')">Select 1 & Continue</button>
           <button onclick="submitVal('2')">Select 2 & Continue</button>
-          <button onclick="submitVal('3')">Select 3 & Continue</button>
+          <button onclick="stopSelection('1')">Select 1 & Stop</button>
+          <button onclick="stopSelection('2')">Select 2 & Stop</button>
+          <button onclick="submitVal('r')">Roll</button>
         </div>
-
     </div>
     <script>
-      // inital(); 
+      // var log = document.getElementById('log');
       // var btn = document.getElementById('btn');
       // var increase = parseInt(document.getElementById('increase1').value);
+      function report(s) { return function() { console.log(s); }; }
       
       // JZZ.synth.OSC.register('Web Audio');
       // JZZ.synth.OSC.clear();
       JZZ.synth.Tiny.register('Web Audio');
 
-      var out = JZZ().or(console.log('Cannot start MIDI engine!')).openMidiOut().or(console.log('Cannot open MIDI Out!'));
+      var out = JZZ().or(report('Cannot start MIDI engine!')).openMidiOut().or(report('Cannot open MIDI Out!'));
       // var player;
       var player = JZZ.gui.Player({at: 'player', midi: false, file: true });
       var playing = false;
@@ -102,11 +77,10 @@
       function clear() {
         if (player) player.stop();
         playing = false;
-        // log.innerHTML = 'reload';
-        // btn.innerHTML = 'Play';
-        // btn.disabled = true;
+        log.innerHTML = 'reload';
+        btn.innerHTML = 'Play';
+        btn.disabled = true;
       }
-
       function load(data, name, increase, prep) {
         var smf = JZZ.MIDI.SMF(data, true, increase);
         player.load(smf);
@@ -126,28 +100,18 @@
       //     player.play();
       //     var c;
       //     for (c = 0; c < 16; c++) JZZ.MIDI.allSoundOff(c);
-      //     // log.innerHTML = name;
+      //     log.innerHTML = name;
       //     btn.innerHTML = 'Stop';
       //     btn.disabled = false;
       //   }
       //   catch (e) {
-      //     console.log(e);
+      //     log.innerHTML = e;
       //   }
       // }
       
       function playStop() {
         player.stop();
         playing = false;
-        // if (playing) {
-        //   player.stop();
-        //   playing = false;
-        //   // btn.innerHTML = 'Play';
-        // }
-        // else {
-        //   player.play();
-        //   playing = true;
-        //   // btn.innerHTML = 'Stop';
-        // }
       }
       
       function fromURL(name, prep = false) {
@@ -194,25 +158,29 @@
         }
       }
       function change_page(){
-        window.location.href = "second.html";
+        window.location.href = "final.html";
       } 
-      
       function submitVal(indata){
           $.ajax({
               url: 'http://127.0.0.1:5000/2',
               type: 'post',
               data: {"data": indata},
               success: function(){
-                  // alert("worked");
-                  change_page();
+                  alert("worked");
               }
               
           });
-          
+      }
+
+      function stopSelection(indata){
+        submitVal(indata); 
+        submitVal('s');
+        change_page();
       }
       
       </script>
 
-    
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
   </body>
 </html>
