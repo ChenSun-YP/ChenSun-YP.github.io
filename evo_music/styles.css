@@ -1,0 +1,9 @@
+.jumbotron{
+    background-color: rgb(190, 234, 248);
+    height: 70vh;
+    width: 90vw;
+    margin-left:5vw;
+    margin-right: 5vw;
+    margin-top:5vh;
+    margin-bottom: 5vh;
+}

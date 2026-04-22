@@ -1,218 +1,171 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Evo Music</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <script src="node_modules\jzz\javascript\JZZ.js"></script>
-    <script src="node_modules\jzz-midi-smf\javascript\JZZ.midi.SMF.js"></script>
-    <script src="node_modules\jzz-synth-tiny\javascript\JZZ.synth.Tiny.js"></script>
-    <script src="node_modules\jzz-synth-osc\javascript\JZZ.synth.OSC.js"></script>
-    <script src="node_modules\jzz-gui-player\javascript\JZZ.gui.Player.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <div class="navbar">
-      <h1 class="text-center"style="font-family:verdana">Evolutionary Music - Song Generator</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chen Sun | PhD Student</title>
+  <meta
+    name="description"
+    content="Academic profile for Chen Sun, PhD student in Biomedical Engineering at USC—CV, poster, and research links."
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page container">
+    <header class="page-header">
+      <h1>Chen Sun</h1>
+      <p class="subtitle">PhD Student in Biomedical Engineering at USC</p>
+      <p class="contact-line">
+        <a href="mailto:csun8109@usc.edu">csun8109@usc.edu</a>
+        <span aria-hidden="true">|</span>
+        <a href="https://github.com/ChenSun-YP" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span aria-hidden="true">|</span>
+        <a href="https://www.linkedin.com/in/chen-sun-79671b134/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </p>
+      <nav class="top-nav">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#cv">CV</a>
+        <a href="#poster">Poster</a>
+        <a href="#github">GitHub Activity</a>
+      </nav>
+    </header>
+
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>
+        I am a PhD student in Biomedical Engineering at USC. In the
+        <a href="https://slab.usc.edu/index.html" target="_blank" rel="noopener noreferrer">Neural Modeling and Interface Lab</a>,
+        I work on experimental neural recordings—spike sorting, signal analysis, and
+        stochastic-gradient-based embedding models for high-dimensional neural data. My background
+        includes building scalable Python services in industry; I use Python and PyTorch for
+        modeling, signal processing, and neural decoding.
+      </p>
+    </section>
+
+    <section id="news" class="section">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li class="news-item">
+          <time class="news-date" datetime="2025-12-16">December 16, 2025</time>
+          <p class="news-body">
+            Presented my work at SfN 2025!
+            <a
+              href="https://www.linkedin.com/feed/update/urn:li:activity:7396715227733516288/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn post</a>.
+          </p>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2025-07-31">July 31, 2025</time>
+          <p class="news-body">
+            My work was covered in this USC Viterbi article on our DARPA-funded project:
+            <a
+              href="https://viterbischool.usc.edu/news/2025/07/new-darpa-funded-project-aims-to-unravel-the-brains-learning-secrets/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >New DARPA-funded project aims to unravel the brain&rsquo;s learning secrets</a>.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="cv" class="section">
+      <h2>CV</h2>
+      <div class="pdf-frame">
+        <iframe
+          title="Chen Sun CV"
+          src="assets/cv.pdf?v=bd2583cc#view=FitH&navpanes=0"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        ></iframe>
+      </div>
+    </section>
+
+    <section id="poster" class="section">
+      <h2>Poster</h2>
+      <div class="pdf-frame">
+        <iframe
+          title="SfN 2025 Poster"
+          src="assets/poster.pdf#view=FitH&navpanes=0"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        ></iframe>
+      </div>
+    </section>
+
+    <section id="github" class="section">
+      <div class="github-header">
+        <h2>GitHub Activity</h2>
+        <div class="github-identity">
+          <img
+            class="github-avatar"
+            src="https://github.com/ChenSun-YP.png"
+            alt="ChenSun-YP GitHub avatar"
+            loading="lazy"
+          />
+          <a
+            class="github-link"
+            href="https://github.com/ChenSun-YP"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/ChenSun-YP
+          </a>
+        </div>
+      </div>
+      <div class="calendar">Loading GitHub contribution calendar...</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-analytics">
+        <div class="footer-map">
+          <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=NsVzSaJBfibZCRV2VLl9Yw_1s9PNhCFGU_HFlFTtg_A&cl=ffffff&w=a"></script>
+        </div>
+      </div>
+      <p>&copy; <span id="year"></span> Chen Sun. All rights reserved.</p>
     </div>
-    <div class="jumbotron">
-        <div class="row text-center">
-          <div class="col-md-4 text-center">
-            <h3>1</h3>
-            <button onclick='fromURL("1.mid"); return false;'>Load Song</button> 
-            <!-- <p><button id="btn" onclick='playStop()' disabled>Play</button></p>
-            <input type="number" id="increase1" value=0> -->
-          </div>
-          <div class="col-md-4 text-center">
-            <h3>2</h3>
-            <button onclick='fromURL("2.mid"); return false;'>Load Song</button> 
-            <!-- <p><button id="btn2" onclick='playStop()' disabled>Play</button></p> -->
-          </div>
-          <div class="col-md-4 <div id=player></div>">
-            <h3>3</h3>
-            <button onclick='fromURL("3.mid"); return false;'>Load Song</button> 
-            <!-- <p><button id="btn3" onclick='playStop()' disabled>Play</button></p> -->
-            <!-- <input type="number" id="increase3" value=0> -->
-          </div>
-        </div>
-        <div class="row text-center" style="margin-top: 70px;">
-          <div id=player></div>
-        </div>
-        <div class="row text-center" style="margin-top: 30px;">
-          <label>Change Midi Instrument</label>
-          <input type="number" id="increase" value=0 min=0 max=115>
-          <button onclick='fromURL("6.mid", true); return false;'>Update Instrument</button> 
-        </div>
-        <!-- <div class="row">
-          <div class="col-md-4 text-center">
-            <h3>4</h3>
-            <button onclick='fromURL("4.mid", 4); return false;'>Load Song</button> 
-            <p><button id="btn4" onclick='playStop()' disabled>Play</button></p>
-            <input type="number" id="increase4" value=0>
-          </div>
-          <div class="col-md-4 text-center">
-            <h3>5</h3>
-            <button onclick='fromURL("5.mid", 5); return false;'>Load Song</button> 
-            <p><button id="btn5" onclick='playStop()' disabled>Play</button></p>
-            <input type="number" id="increase5" value=0>
-          </div>
-          <div class="col-md-4 text-center">
-            <h3>6</h3>
-            <button onclick='fromURL("OG3.mid", 6); return false;'>Load Song</button> 
-            <p><button id="btn6" onclick='playStop()' disabled>Play</button></p>
-            <input type="number" id="increase6" value=0>
-          </div>
-        </div> -->
-        <div class="row text-center" style="margin-top: 70px;">
-          <!-- <form onsubmit='SubForm(); return false;' id="myForm"> 
-            <div>
-              <label>Input numbers of your 2 favorite pieces</label>
-              <input name="choice1" id="choice1" value="1">
-              <input type="submit">
-              <label for="choice2">Select the piece you like</label>
-              <input name="choice2" id="choice2" value="1">
-            </div>
-          </form> -->
-          <button onclick="submitVal('1')">Select 1 & Continue</button>
-          <button onclick="submitVal('2')">Select 2 & Continue</button>
-          <button onclick="submitVal('3')">Select 3 & Continue</button>
-        </div>
+  </footer>
 
-    </div>
-    <script>
-      // inital(); 
-      // var btn = document.getElementById('btn');
-      // var increase = parseInt(document.getElementById('increase1').value);
-      
-      // JZZ.synth.OSC.register('Web Audio');
-      // JZZ.synth.OSC.clear();
-      JZZ.synth.Tiny.register('Web Audio');
+  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-      var out = JZZ().or(console.log('Cannot start MIDI engine!')).openMidiOut().or(console.log('Cannot open MIDI Out!'));
-      // var player;
-      var player = JZZ.gui.Player({at: 'player', midi: false, file: true });
-      var playing = false;
-      
-      function clear() {
-        if (player) player.stop();
-        playing = false;
-        // log.innerHTML = 'reload';
-        // btn.innerHTML = 'Play';
-        // btn.disabled = true;
+    const githubUsername = "ChenSun-YP";
+
+    GitHubCalendar(".calendar", githubUsername, {
+      responsive: true,
+      tooltips: true
+    });
+
+    function removeContributionSkipLink() {
+      const calendarEl = document.querySelector(".calendar");
+      if (!calendarEl) {
+        return;
       }
-
-      function load(data, name, increase, prep) {
-        var smf = JZZ.MIDI.SMF(data, true, increase);
-        player.load(smf);
-        player.play();
-        if(prep) player.stop();
-      }
-      
-      // function load(data, name, increase) {
-      //   try {
-      //     player = JZZ.MIDI.SMF(data, true, increase).player();
-      //     player.connect(out);
-      //     player.onEnd = function() {
-      //       playing = false;
-      //       btn.innerHTML = 'Play';
-      //     }
-      //     playing = true;
-      //     player.play();
-      //     var c;
-      //     for (c = 0; c < 16; c++) JZZ.MIDI.allSoundOff(c);
-      //     // log.innerHTML = name;
-      //     btn.innerHTML = 'Stop';
-      //     btn.disabled = false;
-      //   }
-      //   catch (e) {
-      //     console.log(e);
-      //   }
-      // }
-      
-      function playStop() {
-        player.stop();
-        playing = false;
-        // if (playing) {
-        //   player.stop();
-        //   playing = false;
-        //   // btn.innerHTML = 'Play';
-        // }
-        // else {
-        //   player.play();
-        //   playing = true;
-        //   // btn.innerHTML = 'Stop';
-        // }
-      }
-      
-      function fromURL(name, prep = false) {
-        playStop();
-        var url = 'http://127.0.0.1:5000/front-end/' + name;
-        try {
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
-              if (this.status == 200) {
-                var r, i;
-                var data = '';
-                r = xhttp.response;
-                if (r instanceof ArrayBuffer) {
-                  r = new Uint8Array(r);
-                  for (i = 0; i < r.length; i++) data += String.fromCharCode(r[i]);
-                }
-                else { // for really antique browsers
-                  r = xhttp.responseText;
-                  for (i = 0; i < r.length; i++) data += String.fromCharCode(r.charCodeAt(i) & 0xff);
-                }
-                if (prep) {
-                  var increase = parseInt(document.getElementById('increase').value);
-                  load(data, url, increase, true);
-
-                } else{
-                  load(data, url, 0, false);
-                }
-              }
-              else {
-                // log.innerHTML = 'XMLHttpRequest error';
-                console.log('XMLHttpRequest error');
-              }
-            }
-          };
-          try { xhttp.responseType = 'arraybuffer'; } catch (e) {}
-          xhttp.overrideMimeType('text/plain; charset=x-user-defined');
-          xhttp.open('GET', url, true);
-          xhttp.send();
+      calendarEl.querySelectorAll("a").forEach((link) => {
+        const text = (link.textContent || "").trim().toLowerCase();
+        if (text.includes("skip to contributions year list")) {
+          link.remove();
         }
-        catch (e) {
-          // log.innerHTML = 'XMLHttpRequest error';
-          console.log('XMLHttpRequest error');
-        }
-      }
-      function change_page(){
-        window.location.href = "second.html";
-      } 
-      
-      function submitVal(indata){
-          $.ajax({
-              url: 'http://127.0.0.1:5000/2',
-              type: 'post',
-              data: {"data": indata},
-              success: function(){
-                  // alert("worked");
-                  change_page();
-              }
-              
-          });
-          
-      }
-      
-      </script>
+      });
+    }
 
-    
-  </body>
+    removeContributionSkipLink();
+    const calendarObserver = new MutationObserver(removeContributionSkipLink);
+    const calendarTarget = document.querySelector(".calendar");
+    if (calendarTarget) {
+      calendarObserver.observe(calendarTarget, { childList: true, subtree: true });
+      setTimeout(() => calendarObserver.disconnect(), 6000);
+    }
+
+  </script>
+</body>
 </html>
