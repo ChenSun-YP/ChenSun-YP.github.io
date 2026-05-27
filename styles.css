@@ -125,6 +125,39 @@ body {
   text-decoration: underline;
 }
 
+.paper-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paper-item {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.paper-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.paper-title a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.paper-title a:hover {
+  text-decoration: underline;
+}
+
+.paper-meta {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
 .github-header {
   display: flex;
   align-items: baseline;
