@@ -6,7 +6,7 @@
   <title>Chen Sun | PhD Student</title>
   <meta
     name="description"
-    content="Academic profile for Chen Sun, PhD student in Biomedical Engineering at USC—CV, poster, and research links."
+    content="Chen Sun, Biomedical Engineering PhD student at USC. Research on synaptic plasticity, neural decoding, and computational neuroscience; publications, projects, and CV."
   />
   <link
     rel="stylesheet"
@@ -25,11 +25,15 @@
         <a href="https://github.com/ChenSun-YP" target="_blank" rel="noopener noreferrer">GitHub</a>
         <span aria-hidden="true">|</span>
         <a href="https://www.linkedin.com/in/chen-sun-79671b134/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <span aria-hidden="true">|</span>
+        <a href="https://scholar.google.com/citations?user=7AHKpZEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
       </p>
       <nav class="top-nav">
         <a href="#about">About</a>
         <a href="#news">News</a>
-        <a href="#papers">Papers</a>
+        <a href="#papers">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#cv">CV</a>
         <a href="#poster">Poster</a>
         <a href="#github">GitHub Activity</a>
@@ -39,12 +43,20 @@
     <section id="about" class="section">
       <h2>About</h2>
       <p>
-        In the
+        I am a PhD student in Biomedical Engineering at the University of Southern California,
+        advised by Dong Song in the
         <a href="https://slab.usc.edu/index.html" target="_blank" rel="noopener noreferrer">Neural Modeling and Interface Lab</a>,
-        I work on experimental neural recordings—spike sorting, signal analysis, and
-        stochastic-gradient-based embedding models for high-dimensional neural data. My background
-        includes building scalable Python services in industry; I use Python and PyTorch for
-        modeling, signal processing, and neural decoding.
+        where I study learning and synaptic plasticity from neural recordings. My work includes
+        inferring plasticity rules from endogenous spikes, modeling neural time series, and
+        investigating the effects of miniaturized transcranial magnetic stimulation with
+        electromagnetic simulations. I use Python and PyTorch for modeling, signal processing,
+        and neural decoding.
+      </p>
+      <p>
+        I previously studied Computer Science at Queen&rsquo;s University and worked on deep
+        spiking neural networks in its Machine Intelligence &amp; Biocomputing Laboratory.
+        My industry experience includes full-stack development at ByteDance and recruitment
+        recommendation systems at Mesoor AI.
       </p>
     </section>
 
@@ -85,8 +97,30 @@
     </section>
 
     <section id="papers" class="section">
-      <h2>Papers</h2>
+      <h2>Publications and Manuscripts</h2>
       <ul class="paper-list">
+        <li class="paper-item">
+          <p class="paper-title">
+            <a href="https://doi.org/10.1088/1741-2552/aea44b" target="_blank" rel="noopener noreferrer">
+              Chronic subthreshold rTMS transiently disrupts learning but enhances memory and flexibility in healthy rats
+            </a>
+          </p>
+          <p class="paper-meta">
+            Jiang, W., Choi, W., Hsu, C., Lau, I., McHugh, M., <strong>Sun, C.</strong>, et al.
+            <em>Journal of Neural Engineering</em>, 23(5), 056035, 2026.
+          </p>
+        </li>
+        <li class="paper-item">
+          <p class="paper-title">
+            <a href="https://arxiv.org/abs/2610.02439" target="_blank" rel="noopener noreferrer">
+              A Generative Model of Complex Networks Using Graphons and Neural Inverse Operators
+            </a>
+          </p>
+          <p class="paper-meta">
+            Choi, W., Pinto, I. I. L. D., <strong>Sun, C.</strong>, Gupta, G., Song, D., and Bogdan, P.
+            arXiv:2610.02439, 2026. Preprint.
+          </p>
+        </li>
         <li class="paper-item">
           <p class="paper-title">
             <a href="assets/identification-ltsp-learning-preprint.pdf">
@@ -94,19 +128,78 @@
             </a>
           </p>
           <p class="paper-meta">
-            Chen Sun, Benjamin Ren, Brian S. Robinson, Bryan Moore, Xiang Zhang, and Dong Song.
-            Preprint, 2026.
+            <strong>Chen Sun</strong>, Benjamin Ren, Brian S. Robinson, Bryan Moore, Xiang Zhang, and Dong Song.
+            <em>Under submission.</em> Preprint available above.
           </p>
         </li>
       </ul>
     </section>
 
+    <section id="projects" class="section">
+      <h2>Selected Projects</h2>
+      <ul class="project-list">
+        <li>
+          <h3><a href="https://github.com/ChenSun-YP/litagent" target="_blank" rel="noopener noreferrer">LitAgent</a></h3>
+          <p>
+            An agentic literature assistant that ingests Zotero libraries, indexes papers, and
+            answers questions with citations. Includes interactive wiki and relation-map
+            interfaces for exploring connections across papers.
+          </p>
+        </li>
+        <li>
+          <h3><a href="https://github.com/ChenSun-YP/gaze_reader" target="_blank" rel="noopener noreferrer">GazeReader</a></h3>
+          <p>
+            A spatial PDF reader for Apple Vision Pro, built with Swift, RealityKit, and ARKit.
+            Uses eye tracking and hand gestures to highlight read passages in an immersive environment.
+          </p>
+        </li>
+        <li>
+          <h3>EEG Foundation Challenge</h3>
+          <p>
+            A PyTorch model for predicting behavioral performance from EEG across tasks and
+            subjects, using subject- and session-specific embeddings and neural masking.
+            Ranked in the top 10% of participating teams in 2025.
+          </p>
+        </li>
+        <li>
+          <h3>Thalamic Model for Task Segmentation</h3>
+          <p>
+            A PyTorch model with self-generated task representations, trained in a custom
+            OpenAI Gym environment to study task-boundary inference, lifelong learning,
+            and adaptation without catastrophic forgetting.
+          </p>
+        </li>
+        <li>
+          <h3><a href="evo_music/">EvoMedley</a></h3>
+          <p>
+            An interactive melody generator that combines MIDI fragments from user-selected
+            tracks using evolutionary algorithms and user-guided fitness.
+            <a href="evo_music/">Explore the demo</a>.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Technical Skills</h2>
+      <p>
+        Python, MATLAB, SQL, Go, PyTorch, OpenCV, ROS, COMSOL; time-series analysis, signal
+        processing, spiking neural networks, nonlinear and nonstationary modeling,
+        reinforcement learning, deep learning, and electromagnetic simulation.
+      </p>
+      <p>
+        Familiarity with Transformers, feedforward neural networks, ResNets, JEPA, and VQ-VAE.
+        Agentic AI workflows using OpenAI Codex, Claude Code, and Grok.
+      </p>
+    </section>
+
     <section id="cv" class="section">
       <h2>CV</h2>
+      <p><a href="assets/cv.pdf?v=a970d859" target="_blank" rel="noopener noreferrer">Open or download my CV (PDF, 2 pages)</a></p>
       <div class="pdf-frame">
         <iframe
           title="Chen Sun CV"
-          src="assets/cv.pdf?v=bd2583cc#view=FitH&navpanes=0"
+          src="assets/cv.pdf?v=a970d859#view=FitH&navpanes=0"
           loading="lazy"
           referrerpolicy="no-referrer"
         ></iframe>

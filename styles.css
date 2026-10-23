@@ -139,6 +139,10 @@ body {
   background: #fff;
 }
 
+.paper-item + .paper-item {
+  margin-top: 12px;
+}
+
 .paper-title {
   margin: 0;
   font-weight: 700;
@@ -156,6 +160,36 @@ body {
 .paper-meta {
   margin: 6px 0 0;
   color: var(--muted);
+}
+
+.project-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-list li + li {
+  margin-top: 20px;
+}
+
+.project-list h3 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.project-list p {
+  margin: 0;
+}
+
+.project-list a,
+#cv > p a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.project-list a:hover,
+#cv > p a:hover {
+  text-decoration: underline;
 }
 
 .github-header {
