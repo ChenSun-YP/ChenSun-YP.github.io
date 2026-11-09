@@ -10,7 +10,7 @@ function transportIcon(active){const b=$('play');b.setAttribute('aria-label',act
 async function get(url,json=true){const r=await fetch(url);if(!r.ok)throw Error(`${url}: ${r.status}`);return json?r.json():r.arrayBuffer();}
 function now(){if(previewing)return Math.min(manifest.duration,position+(performance.now()-previewEpoch)/1000);return playing?Math.max(0,Math.min(manifest.duration,position+context.currentTime-epoch)):position;}
 function stop(){if(playing||previewing)position=now();previewing=false;if($('silentPreview'))$('silentPreview').textContent='静音看动画';playing=false;for(const s of sources){s.onended=null;try{s.stop();}catch{}}sources=[];gains=[];analysers=[];transportIcon(false);}
-function effective(i){return states[i].mute||(states.some(s=>s.solo)&&!states[i].solo)?0:states[i].gain;}
+function effective(i){return states[i].bodyPending||states[i].mute||(states.some(s=>s.solo)&&!states[i].solo)?0:states[i].gain;}
 function syncGains(){gains.forEach((g,i)=>g.gain.setTargetAtTime(effective(i),context.currentTime,.01));states.forEach((s,i)=>$('track-'+i).classList.toggle('silent',!effective(i)));}
 async function play(){if(!ready)return;if(playing){stop();return;}if(starting){await context.resume();return;}starting=true;try{if(previewing)stop();await context.resume();if(context.state!=='running')return;if(position>=manifest.duration-.02)position=0;epoch=context.currentTime+.06;playing=true;sources=buffers.map((b,i)=>{const s=context.createBufferSource(),g=context.createGain();s.buffer=b;const an=context.createAnalyser();an.fftSize=2048;an.smoothingTimeConstant=.65;s.connect(an);analysers.push(an);g.gain.value=effective(i);s.connect(g).connect(context.destination);gains.push(g);s.start(epoch,position);return s;});transportIcon(true);}finally{starting=false;}}
 function autoplayFallback(){if(!playing&&context.state!=='running'){$('play').title='点击播放（浏览器限制自动播放）';$('lineStatus').textContent='点击播放以启用声音';}}
@@ -45,9 +45,17 @@ async function main(){manifest=await get('assets/performance/manifest.json');pos
 }
 main().catch(fail);
 
-const changeBody=createBodyControls({getInputs:()=>ready?{wasm}:null,status:message=>$('nativeStudio').contentWindow.postMessage({type:'chimera-body-status',...message},location.origin),apply:result=>{
+function bodyPending(id,pending){const i=manifest?.tracks.findIndex(t=>t.id===id);if(i===undefined||i<0||!states[i])return;states[i].bodyPending=pending;syncGains();}
+function applyBodyResult(result){
  const i=manifest.tracks.findIndex(t=>t.id===result.id);if(i<0)throw Error('Unknown voice');
  const buffer=context.createBuffer(1,result.audio.length,result.sampleRate);buffer.copyToChannel(result.audio,0);
- const was=playing;stop();buffers[i]=buffer;telemetry[result.id]={frames:result.frames,body:result.body};manifest.tracks[i].body=result.body;if(result.words.length)manifest.tracks[i].tokens=result.words;if(was)play().catch(fail);
-}});
-addEventListener('message',e=>{if(e.origin===location.origin&&e.source===$('nativeStudio').contentWindow&&e.data?.type==='chimera-body-change')changeBody(e.data.id,e.data.body);});
+ buffers[i]=buffer;telemetry[result.id]={frames:result.frames,body:result.body};manifest.tracks[i].body=result.body;if(result.words.length)manifest.tracks[i].tokens=result.words;
+ states[i].bodyPending=false;
+ if(playing){
+  const at=context.currentTime+.03,offset=Math.min(manifest.duration,now()+.03),old=sources[i];
+  if(offset<manifest.duration){const source=context.createBufferSource(),gain=context.createGain(),an=context.createAnalyser();source.buffer=buffer;an.fftSize=2048;an.smoothingTimeConstant=.65;source.connect(an);source.connect(gain).connect(context.destination);gain.gain.setValueAtTime(0,at);gain.gain.linearRampToValueAtTime(effective(i),at+.04);source.start(at,offset);sources[i]=source;gains[i]=gain;analysers[i]=an;}
+  if(old){old.onended=null;try{old.stop(at);}catch{}}
+ }
+}
+const changeBody=createBodyControls({getInputs:()=>ready?{wasm}:null,status:message=>{if(message.state!=='done')bodyPending(message.id,message.state==='working');$('nativeStudio').contentWindow.postMessage({type:'chimera-body-status',...message},location.origin);},apply:applyBodyResult});
+addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==$('nativeStudio').contentWindow)return;const {type,id,body}=e.data??{};if(type==='chimera-body-preview'&&['lead','harmony1','harmony2','bass'].includes(id)){changeBody.cancel(id);bodyPending(id,true);}if(type==='chimera-body-change')changeBody(id,body);});
