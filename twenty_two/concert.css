@@ -9,3 +9,7 @@ body{background:#000;color:#bdd0cd}main{width:min(1440px,calc(100% - 32px))}main
 .controlbar #play{display:grid;place-items:center;width:40px;height:40px;min-width:40px;padding:8px}.controlbar #play svg{width:20px;height:20px;fill:currentColor}
 
 #nativeStudio{height:1770px}@media(max-width:700px){#nativeStudio{height:1810px}}
+
+/* Keep the complete stage and its controls within the available viewport. */
+html,body{height:100%;overflow:hidden}main{width:calc(100% - 24px);max-width:none;height:100dvh;display:grid;grid-template-rows:32px minmax(0,1fr) 24px;margin:0 12px}main>header{height:32px;padding:0;font-size:10px}#player{min-height:0;display:grid;grid-template-rows:44px minmax(0,1fr)}.controlbar{height:44px!important;min-height:0;padding:2px 0;flex-wrap:nowrap}#nativeStudio,#nativeStudio.expanded{height:100%;min-height:0;width:100%}footer{margin:0;padding:5px 0;font-size:9px}.controlbar #play{height:34px;width:34px;min-width:34px}.controlbar #seek{min-width:0}@media(max-width:700px){main{width:calc(100% - 12px);margin:0 6px}.controlbar{gap:8px}main>header small{font-size:9px}}
+main{grid-template-rows:24px minmax(0,1fr) 16px}main>header{height:24px}#player{grid-template-rows:28px minmax(0,1fr)}.controlbar{height:28px!important;padding:0}.controlbar #play{height:26px;width:28px;min-width:28px;padding:4px}footer{padding:2px 0;font-size:8px}
