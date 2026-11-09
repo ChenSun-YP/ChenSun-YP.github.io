@@ -16,7 +16,7 @@ function autoplayFallback(){if(!playing&&context.state!=='running'){$('play').ti
 function seek(t){const was=playing;stop();position=Math.max(0,Math.min(manifest.duration,t));if(was)play().catch(fail);showLine(position);}
 function fail(e){$('lineStatus').textContent='加载未完成：'+e.message;console.error(e);}
 function data(row){if(!cache.has(row.id))cache.set(row.id,get(row.data));return cache.get(row.id);}
-async function showLine(t){let i=-1;for(let j=0;j<manifest.rows.length;j++)if(manifest.rows[j].offset<=t)i=j;if(i<0)i=0;if(i===selected)return;selected=i;const row=manifest.rows[i],ticket=++serial;
+async function showLine(t){let i=-1;for(let j=0;j<manifest.rows.length;j++)if((manifest.rows[j].tokens[0]?.start??manifest.rows[j].offset)<=t)i=j;if(i<0)i=0;if(i===selected)return;selected=i;const row=manifest.rows[i],ticket=++serial;
  $('lineTitle').textContent=String(row.id).padStart(2,'0')+' / '+row.text;document.querySelectorAll('.line').forEach(b=>b.setAttribute('aria-current',String(+b.dataset.index===i)));makeReadings(row);
  try{const d=await data(row);if(ticket!==serial)return;view?.dispose();view=null;const next=await createPerformance($('performance'),d.score,d.telemetry,wasm);if(ticket!==serial){next.dispose();return;}view=next;viewOffset=row.offset;$('loading').hidden=true;if(i+1<manifest.rows.length)data(manifest.rows[i+1]).catch(()=>{});}catch(e){fail(e);}
 }
