@@ -16,7 +16,7 @@ body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--text);
   background: var(--bg);
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 .container {
@@ -25,12 +25,12 @@ body {
 }
 
 .page {
-  padding: 48px 0 36px;
+  padding: 28px 0 24px;
 }
 
 .page-header h1 {
   margin: 0;
-  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 2.6rem);
   font-weight: 800;
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 .top-nav {
-  margin-top: 14px;
+  margin-top: 10px;
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
@@ -77,12 +77,12 @@ body {
 }
 
 .section {
-  margin-top: 36px;
+  margin-top: 24px;
 }
 
 .section h2 {
-  margin: 0 0 10px;
-  font-size: 1.55rem;
+  margin: 0 0 8px;
+  font-size: 1.35rem;
 }
 
 .news-list {
@@ -93,19 +93,19 @@ body {
 
 .news-item {
   margin: 0;
-  padding: 14px 16px;
+  padding: 10px 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
 }
 
 .news-item + .news-item {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .news-date {
   display: block;
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--muted);
@@ -133,14 +133,14 @@ body {
 
 .paper-item {
   margin: 0;
-  padding: 14px 16px;
+  padding: 10px 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
 }
 
 .paper-item + .paper-item {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .paper-title {
@@ -158,7 +158,7 @@ body {
 }
 
 .paper-meta {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   color: var(--muted);
 }
 
@@ -254,7 +254,7 @@ body {
 .pdf-frame iframe {
   display: block;
   width: 100%;
-  min-height: 840px;
+  min-height: 560px;
   border: 0;
 }
 
@@ -285,10 +285,10 @@ body {
 
 @media (max-width: 840px) {
   .page {
-    padding-top: 34px;
+    padding-top: 22px;
   }
 
   .pdf-frame iframe {
-    min-height: 68vh;
+    min-height: 60vh;
   }
 }
